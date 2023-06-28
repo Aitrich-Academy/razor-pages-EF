@@ -1,0 +1,79 @@
+﻿@page
+@model HireMeNow_JobSeekerApp.Pages.Public.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LoginLayout";
+}
+
+<div class="container containerDiv">
+
+    <div class="col-md-8 wrapperDiv">
+        <div class="col-md-6 leftDiv">
+            <div>
+                <form  class="loginform" method="post">
+                    <img src="~/publicassets/images/logo.png" alt="" width="60px"/>
+                    <font size="6" face="DM Sans"> <b>Welcome Back</b> </font>
+                    <br>
+                    <section class="googleDiv">
+                        <img src="~/publicassets/images/google symbol.png" width="20px" align="top" alt="" />
+                        
+                        &nbsp;  <b>Log in with Google </b>
+
+                    </section>
+                    <br>
+                    <font face="Roboto" size="1" color="#C5BEBE">
+                        <b> OR LOGIN WITH EMAIL </b>
+                    </font>
+                    <div class="row">
+                        <div class="errors" asp-validation-summary="All"></div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+
+                        <input type="email" asp-for="Input.Email" class="form-control" id="email" placeholder="Enter email" required="Please Enter Email">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" asp-for="Input.Password" class="form-control" id="pwd" placeholder="Enter password" required="Please Enter Password">
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">Keep me logged in</label>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btnlogin">Login</button>
+                    <br>
+                    <font size="3" face="Roboto"> Don’t have an account yet ? </font> <a href="./Register">
+                        <font color="49A1D3" size="3" face="Roboto"> Sign up </font>
+                    </a>
+
+                </form>
+
+            </div>
+        </div>
+        <div class="col-md-6 rightDiv">
+            <div>
+               
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@*
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="row">
+        <div asp-validation-summary="All"></div>
+    </div>
+    <div>
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" />
+    </div>
+    <div>
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" type="password" />
+    </div>
+    <button type="submit">Login</button>
+</form>*@

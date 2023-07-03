@@ -8,7 +8,12 @@ namespace JobPortalApplication.Services
     public class JobService : IJobService
     {
         IJobRepository _jobRepository;
-        public JobService(IJobRepository jobRepository )
+
+		public JobService()
+		{
+		}
+
+		public JobService(IJobRepository jobRepository )
         {
             _jobRepository=jobRepository;
         }

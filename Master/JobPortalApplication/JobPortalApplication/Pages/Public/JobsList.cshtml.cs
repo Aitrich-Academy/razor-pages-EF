@@ -40,25 +40,25 @@ namespace HireMeNow_JobSeekerApp.Pages.Public
         [ValidateAntiForgeryToken]
         public IActionResult OnPostButtonClick()
         {
-            ////User user=userService.();
+          
             var userid = TempData["UserId"];
-            TempData.Keep("UserId");
-            ////if (user.Email!=null)
-            ////{
-            ////    if (int.TryParse(Request.Form["parameter"], out int jobid))
-            ////    {
-            ////        // Functionality to be executed on button click
-            ////        // You can access the value of the parameter here
-            ////        jobService.ApplyJob(jobid);
-            ////        return RedirectToPage("/JobSeeker/AppliedJobs");
-            ////    }
-            ////}
-            ////else
-            ////{
-                return RedirectToPage("/Public/Login");
-            ////}
+            //User user = userService.getById(Guid.new(userid));
+            //TempData.Keep("UserId");
+
+            if (int.TryParse(Request.Form["parameter"], out int jobid))
+            {
+
+                //jobService.ApplyJob(jobid);
+                return RedirectToPage("/JobSeeker/AppliedJobs");
+
+            }
+
+
 
             return Page();
+            
+
+         
         }
     }
 }

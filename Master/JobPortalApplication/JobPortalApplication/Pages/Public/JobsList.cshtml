@@ -145,13 +145,18 @@
                     </div>
                     <div class="col-md-2 applySection">
                             <form method="post">
-                                <input type="hidden" name="parameter" value="@job.Id" />
+                               
                                 @{
                                     if (TempData["UserId"] == null)
                                     {
+                                        TempData["Id"] = job.Id;
+                                        <h1>TempData["Id"]</h1>
+                                        <input type="hidden" name="parameter" value="@job.Id" />
                                         <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
                                     }
                                     else{
+                                        
+                                        <input type="hidden" name="parameter" value="@job.Id" />
                                         <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
                                     }
 

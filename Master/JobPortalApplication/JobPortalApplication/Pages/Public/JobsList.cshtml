@@ -94,7 +94,7 @@
     }
    
 </style>
-@*<div>
+<div>
     <h1 align="center">
         <font size="6" face="system-ui" color="black" align="center">
             <b>Find your </b>
@@ -159,8 +159,8 @@
                         </form>
                       
 
-                            <progress id="progressBar" value=@job.Applied max=@job.Capacity></progress>
-                            <span class="progressSpan">@job.Applied applied of @job.Capacity capacity</span>
+                            <progress id="progressBar" value=@job.AppliedCount max=@job.VacanciesCount></progress>
+                            <span class="progressSpan">@job.AppliedCount applied of @job.VacanciesCount capacity</span>
                     </div>
                 </div>
                 </div>
@@ -187,4 +187,4 @@
    
 
 </div>
-</div>*@
+</div>

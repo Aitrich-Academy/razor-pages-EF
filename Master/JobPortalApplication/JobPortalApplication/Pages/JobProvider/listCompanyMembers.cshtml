@@ -1,0 +1,60 @@
+﻿@page
+@model HireMeNow_JobSeekerApp.Pages.JobProvider.listCompanyMembersModel
+@{
+
+    Layout = "_JobProviderLayout";
+}
+<style>
+    .mainDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+        flex-wrap: wrap;
+
+    }
+
+    #btn-danger{
+        height:10%;
+    }
+
+    .containerdiv{
+        box-shadow: 1px 1px 6px 1px #1c1c1c;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    </style>
+<div class="row mainDiv">
+    <div class="containerdiv col-md-4">
+          @foreach (var job in Model.users)
+            {
+            
+       
+              
+        <div class="col-md-6 detailsDiv ">
+            <form method="post">
+                    <img src="" /><br>
+                    <b> @job.FirstName </b><br>
+                    <b> @job.Designation </b><br>
+                    <b> @job.Phone </b><br>
+                    <b> @job.Email </b><br><br>
+
+                    <input type="button" value="View" class="btn btn-primary">
+
+
+                    @*<input type="button" value="Delete" class="btn btn-danger" onclick="window.location.href = '/JobProvider/ConfirmDelete'">*@
+
+
+
+                    <input type="button" value="Confirm Delete" class="btn btn-danger" onclick="window.location.href = '/JobProvider/ConfirmDelete?userId=@job.Id'">
+
+                    
+            </form>
+               
+        </div>
+        }
+    </div>
+
+</div>

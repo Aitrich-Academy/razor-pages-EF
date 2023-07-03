@@ -73,9 +73,10 @@ namespace JobPortalApplication.Repositories
             user.Id = Guid.NewGuid();
             user.Role = Roles.CompanyMember.ToString();
 
-            if (_context.Users.Where(e => e.Email == user.Email) == null)
+            if (_context.Users.Where(e => e.Email == user.Email).Count()<=0)
             {
                 _context.Users.Add(user);
+                _context.SaveChanges();
                 return user;
             }
             else

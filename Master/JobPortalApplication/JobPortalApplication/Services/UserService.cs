@@ -29,6 +29,11 @@ namespace JobPortalApplication.Services
         {
             return userRepository.register(user);
         }
+        
+        public User registerMember(User user)
+        {
+            return userRepository.memberRegister(user);
+        }
 
         public User Update(User user)
         {
@@ -36,6 +41,14 @@ namespace JobPortalApplication.Services
             return updateduser;
         }
 
-	
-	}
+        public List<User> memberListing(Guid id)
+        {
+            return userRepository.memberListing(id);
+        }
+
+        //public List<User> memberListing(Guid companyId)
+        //{
+        //    throw new NotImplementedException();
+        //}
+    }
 }

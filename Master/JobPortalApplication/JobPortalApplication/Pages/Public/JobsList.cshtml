@@ -94,7 +94,7 @@
     }
    
 </style>
-@*<div>
+<div>
     <h1 align="center">
         <font size="6" face="system-ui" color="black" align="center">
             <b>Find your </b>
@@ -145,13 +145,18 @@
                     </div>
                     <div class="col-md-2 applySection">
                             <form method="post">
-                                <input type="hidden" name="parameter" value="@job.Id" />
+                               
                                 @{
                                     if (TempData["UserId"] == null)
                                     {
+                                        TempData["Id"] = job.Id;
+                                        <h1>TempData["Id"]</h1>
+                                        <input type="hidden" name="parameter" value="@job.Id" />
                                         <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
                                     }
                                     else{
+                                        
+                                        <input type="hidden" name="parameter" value="@job.Id" />
                                         <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
                                     }
 
@@ -159,8 +164,8 @@
                         </form>
                       
 
-                            <progress id="progressBar" value=@job.Applied max=@job.Capacity></progress>
-                            <span class="progressSpan">@job.Applied applied of @job.Capacity capacity</span>
+                            <progress id="progressBar" value=@job.AppliedCount max=@job.VacanciesCount></progress>
+                            <span class="progressSpan">@job.AppliedCount applied of @job.VacanciesCount capacity</span>
                     </div>
                 </div>
                 </div>
@@ -187,4 +192,4 @@
    
 
 </div>
-</div>*@
+</div>

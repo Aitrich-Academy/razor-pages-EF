@@ -9,8 +9,7 @@ namespace JobPortalApplication.Repositories
 {
     public class JobRepository : IJobRepository
     {
-		private HireMeNowDbContext _context = new HireMeNowDbContext();
-
+		HireMeNowDbContext _context=new HireMeNowDbContext();
 		private List<Job> jobs = new List<Job>();
 		//{ new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich",new Guid("62ec44fb-9f30-4f45-8e3d-f3751998af89")),
 		//new Job("Java Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
@@ -44,10 +43,9 @@ namespace JobPortalApplication.Repositories
 		}
 
 		public List<Job> GetJobs()
-		{
-            return jobs=_context.Jobs.ToList();
-
-		}
+        {
+            return _context.Jobs.ToList();
+        }
 
 		public List<Job> GetJobsByIds(List<Guid> appliedJobsIds)
 		{

@@ -8,7 +8,12 @@ namespace JobPortalApplication.Services
     public class JobService : IJobService
     {
         IJobRepository _jobRepository;
-        public JobService(IJobRepository jobRepository )
+
+		public JobService()
+		{
+		}
+
+		public JobService(IJobRepository jobRepository )
         {
             _jobRepository=jobRepository;
         }
@@ -20,6 +25,11 @@ namespace JobPortalApplication.Services
 			_jobRepository.DeleteById(id);
 
 		}
+
+		//public void DeleteItemById(Job jobToRemove)
+		//{
+		//	_jobRepository.DeleteById(jobToRemove);
+		//}
 
 		public List<Job> getByTitle(string title)
 		{

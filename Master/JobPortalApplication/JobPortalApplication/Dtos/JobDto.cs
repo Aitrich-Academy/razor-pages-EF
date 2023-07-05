@@ -9,8 +9,8 @@ namespace JobPortalApplication.Dtos
 		public string Title { get; set; }
 		public string Description { get; set; }
 		public string Location { get; set; }
-		public string Experience { get; set; }
-		public string TypeOfWork { get; set; }
+		//public string Experience { get; set; }
+		//public string TypeOfWork { get; set; }
 		public string Salary { get; set; }
 	
 		public string? CompanyName { get; set; }

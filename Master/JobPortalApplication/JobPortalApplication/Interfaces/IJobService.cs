@@ -11,6 +11,6 @@ namespace JobPortalApplication.Interfaces
 		void DeleteItemById(Guid id);
 		Job Update(Job job);
 		List<Job> getByTitle(string title);
-		
+		//void DeleteItemById(Job jobToRemove);
 	}
 }

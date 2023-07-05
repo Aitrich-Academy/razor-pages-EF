@@ -1,5 +1,3 @@
-
-
 using JobPortalApplication.Models;
 using JobPortalApplication.Helpers;
 using JobPortalApplication.Interfaces;

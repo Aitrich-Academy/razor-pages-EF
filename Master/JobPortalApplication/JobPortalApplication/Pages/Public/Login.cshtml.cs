@@ -74,7 +74,8 @@ namespace HireMeNow_JobSeekerApp.Pages.Public
                     //HttpContext.Session.SetString("UserId", result.Id.ToString());
                     ViewData["UserId"]=result.Id;
                     TempData["UserId"] =  result.Id;
-                    return LocalRedirect(returnUrl);
+					TempData["CompanyId"] = result.CompanyId;
+					return LocalRedirect(returnUrl);
                 }
                 else
                 {

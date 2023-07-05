@@ -10,23 +10,34 @@ namespace JobPortalApplication.Repositories
     public class JobRepository : IJobRepository
     {
 		HireMeNowDbContext _context=new HireMeNowDbContext();
-		private List<Job> jobs = new List<Job>();
-		//{ new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich",new Guid("62ec44fb-9f30-4f45-8e3d-f3751998af89")),
-		//new Job("Java Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
-		//new Job("Angular Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
-		//new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
-		//new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich")};
-		//private readonly List<Job> _jobs;
-	
 
+        //{ new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich",new Guid("62ec44fb-9f30-4f45-8e3d-f3751998af89")),
+        //new Job("Java Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
+        //new Job("Angular Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
+        //new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
+        //new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich")};
+        private readonly List<Job> jobs;
+ 
+
+      
 		public void DeleteById(Guid id)
 		{
-			Job item = jobs.FirstOrDefault(i => i.Id == id);
-			if (item != null)
+			var job = _context.Jobs.Find(id);
+			if (job != null)
 			{
-				jobs.Remove(item);
+				_context.Jobs.Remove(job);
+				_context.SaveChanges();
 			}
 		}
+
+
+
+		//public void DeleteById(Job jobToRemove)
+		//{
+		//	var job = jobs.FirstOrDefault(i => i.Id == jobToRemove.Id);
+		//	_context.Jobs.Remove(job);
+		//	_context.SaveChanges();
+		//}
 
 		public List<Job> getByTitle(string title)
 		{

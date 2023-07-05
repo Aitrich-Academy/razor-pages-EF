@@ -153,25 +153,20 @@
                         <br>
 
                     </div>
-                  @*  <div class="col-md-2 applySection">
-                            <form method="post">
-                                <input type="hidden" name="parameter" value="@job.Id" />
-                                @{
-                                    if (TempData["UserId"] == null)
-                                    {
-                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
-                                    }
-                                    else{
-                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick" >
-                                    }
+                  <div class="col-md-2 applySection">
+                            <form method="post" asp-page-handler="RemoveJob" asp-route-id="@job.Id">
+                               @* <input type="hidden" name="parameter" value="@job.Id" />*@
+                                
+                                    <button class="btn btn-apply"type="submit">
+                                Remove
+                            </button>
 
-                            }
+                            
                         </form>
                       
 
-                            <progress id="progressBar" value=@job.Applied max=@job.Capacity></progress>
-                            <span class="progressSpan">@job.Applied applied of @job.Capacity capacity</span>
-                    </div>*@
+                         
+                    </div>
                 </div>
                 </div>
             }

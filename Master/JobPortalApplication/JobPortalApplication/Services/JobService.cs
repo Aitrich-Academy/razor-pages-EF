@@ -26,6 +26,11 @@ namespace JobPortalApplication.Services
 
 		}
 
+		//public void DeleteItemById(Job jobToRemove)
+		//{
+		//	_jobRepository.DeleteById(jobToRemove);
+		//}
+
 		public List<Job> getByTitle(string title)
 		{
 

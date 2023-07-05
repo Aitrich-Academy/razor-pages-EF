@@ -55,5 +55,7 @@ namespace JobPortalApplication.Pages.JobProvider
 			}
 			return Page();
 		}
+
+		
 	}
 }

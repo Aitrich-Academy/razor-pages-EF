@@ -23,5 +23,9 @@ namespace JobPortalApplication.Services
 			
 			_applicationRepository.AddApplication(user,job);
 		}
-	}
+        public List<Application> GetAll(Guid userId)
+		{
+			return _applicationRepository.GetAll(userId);
+		}
+    }
 }

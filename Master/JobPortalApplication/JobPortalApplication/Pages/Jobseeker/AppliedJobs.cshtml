@@ -1,11 +1,11 @@
 ﻿@page
-@model HireMeNow_JobSeekerApp.Pages.Public.JobsListModel
+@model HireMeNow_JobSeekerApp.Pages.Public.AppliedJobsModel
 @{
     ViewData["Title"] = "Hire Me Now";
     if (TempData["UserId"]==null)
     {
         TempData.Keep("UserId");
-        Layout = "_UserLayout";
+        Layout = "_JobSeekerLayout";
     }
     else
     {
@@ -110,7 +110,7 @@
     <div class="row jobListDiv" >
 
         <div class="left col-md-8 scroll">
-            @foreach (var job in Model.jobs)
+            @foreach (var app in Model.Applications)
             {
                 <div class="job-card" style="">
                 <div width="" class="JobWrapper">
@@ -120,14 +120,14 @@
                     </div>
                     <div class="col-md-8 jobData">
                         <b >
-                            <font size="5px" color="#3487bf">@job.Title </font>
+                            <font size="5px" color="#3487bf">@app.Job.Title </font>
                         </b>
                         <br>
                        
                         <div>
-                          company: <b>@job.Company</b> <br>
-                           Location: <b>@job.Location</b> <br>
-                           salary : <b>@job.Salary</b>
+                          company: <b>@app.Job.Company</b> <br>
+                           Location: <b>@app.Job.Location</b> <br>
+                        
 
                         </div>
                         <br>
@@ -143,7 +143,7 @@
                         <br>
 
                     </div>
-                    <div class="col-md-2 applySection">
+              @*      <div class="col-md-2 applySection">
                             <form method="post">
                                
                                 @{
@@ -166,9 +166,9 @@
 
                             <progress id="progressBar" value=@job.AppliedCount max=@job.VacanciesCount></progress>
                             <span class="progressSpan">@job.AppliedCount applied of @job.VacanciesCount capacity</span>
-                    </div>
+                    </div>*@
                 </div>
-                </div>
+                </div>  
             }
            
             <div class="center">

@@ -50,7 +50,8 @@ namespace JobPortalApplication.Repositories
 
 		public Job GetJobById(Guid selectedJobId)
 		{
-			return jobs.Where(e=>e.Id==selectedJobId).FirstOrDefault();
+			Job jobs=_context.Jobs.Where(e=>e.Id==selectedJobId).FirstOrDefault();
+			return jobs;
 		}
 
 		public List<Job> GetJobs()

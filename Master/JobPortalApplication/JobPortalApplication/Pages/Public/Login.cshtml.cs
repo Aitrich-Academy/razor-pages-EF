@@ -71,7 +71,7 @@ namespace HireMeNow_JobSeekerApp.Pages.Public
                 var result = publicService.login(Input.Email, Input.Password);
                 if (result!=null)
                 {
-                    //HttpContext.Session.SetString("UserId", result.Id.ToString());
+                    HttpContext.Session.SetString("UserId", result.Id.ToString());
                     ViewData["UserId"]=result.Id;
                     TempData["UserId"] =  result.Id;
 					TempData["CompanyId"] = result.CompanyId;

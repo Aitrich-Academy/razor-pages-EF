@@ -8,8 +8,12 @@ namespace JobPortalApplication.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private HireMeNowDbContext _context = new HireMeNowDbContext();
-       
+        private HireMeNowDbContext _context;
+        public UserRepository(HireMeNowDbContext context)
+        {
+            _context = context;
+        }
+
         public User getById(Guid userId)
         {
            User user= _context.Users.Where(e=>e.Id==userId).FirstOrDefault();

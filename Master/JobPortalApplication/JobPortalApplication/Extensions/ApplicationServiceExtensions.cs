@@ -12,23 +12,23 @@ namespace JobPortalApplication.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IUserService, UserService>();
-            services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IInterviewServices, InterviewServices>();
-			services.AddSingleton<IInterviewRepository, InterviewRepository>();
+			services.AddScoped<IInterviewRepository, InterviewRepository>();
 			services.AddScoped<IJobService, JobService>();
-			services.AddSingleton<IJobRepository, JobRepository>();
-            services.AddSingleton<ICompanyRepository, CompanyRepository>();
+			services.AddScoped<IJobRepository, JobRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
 			services.AddScoped<IApplicationService, ApplicationService>();
-			services.AddSingleton<IApplicationRepository, ApplicationRepository>();
+			    services.AddScoped<IApplicationRepository, ApplicationRepository>();
 		
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<HireMeNowDbContext>(options =>
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection"))
             );
-			services.AddTransient<HireMeNowDbContext>();
+            services.AddScoped<HireMeNowDbContext>();
 
-			return services;
+            return services;
         }
     }
 }

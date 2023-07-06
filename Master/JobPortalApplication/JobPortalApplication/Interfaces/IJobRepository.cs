@@ -13,5 +13,6 @@ namespace JobPortalApplication.Interfaces
 
 		void DeleteById(Guid id);
 		List<Job> getByTitle(string title);
+		//void DeleteById(Job jobToRemove);
 	}
 }

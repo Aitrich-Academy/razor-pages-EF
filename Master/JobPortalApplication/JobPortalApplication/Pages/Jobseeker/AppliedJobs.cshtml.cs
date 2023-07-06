@@ -32,9 +32,10 @@ namespace HireMeNow_JobSeekerApp.Pages.Public
 
         public void OnGet()
         {
-            Guid userid = new Guid("18467CD4-2B85-4B2E-AB33-C78353D8B36D");
-         
-           Applications= applicationService.GetAll(userid);
+           
+			string userId = HttpContext.Session.GetString("UserId");
+			Guid userid = new Guid(userId);
+			Applications = applicationService.GetAll(userid);
             Applications.ForEach((e) =>
             {
                 e.Job = jobService.getJobById(e.JobId.Value);

@@ -21,6 +21,7 @@ namespace JobPortalApplication.Repositories
 			app.UserId = user.Id;
 			app.JobId = job.Id;
 			app.Status = "Pending";
+				app.AppliedDate=DateTime.Now;
 			_context.Applications.Add(app);
 			_context.SaveChanges();
 			

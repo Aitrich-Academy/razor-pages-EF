@@ -2,13 +2,13 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>@ViewBag.Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>@ViewBag.Title</title>
 	<style>
 		body, html {
 			height: 100%;
@@ -21,19 +21,23 @@
 			background-color: #f1f1f1;
 		}
 
-	
 
-		.sidebarDiv{
-			background-color: rgba(32, 166, 252, 1);
+
+		.sidebarDiv {
+			background: #20a6fc;
+			;
 		}
+
 		#menu li {
-			background-color: rgba(32, 166, 252, 1);
+			background: #20a6fc;
+			
 		}
-		.navbar{
+
+		.navbar {
 			padding-left: 0px;
 		}
 
-		.footerfull{
+		.footerfull {
 			padding: 0px;
 		}
 
@@ -59,14 +63,13 @@
 			max-width: 300px;
 		}
 
-		.footerContainerDiv{
-
+		.footerContainerDiv {
 		}
 
 			.footerContainerDiv.positioned {
 				position: relative;
 				bottom: -500px;
-		}
+			}
 
 	</style>
 	<script>
@@ -85,7 +88,7 @@
 <body>
 	<div class="container-fluid fullscreen-div ">
 		<div class="row">
-			<div class="col-md-2 text-nowrap sidebarDiv bg-primary">
+			<div class="col-md-2 text-nowrap sidebarDiv">
 				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 						<span class="navbar-toggler-icon bg-dark"></span>
@@ -128,16 +131,16 @@
 							</li>
 
 							@*<li class="list-group-item border-0  ">
-								<p><img src="images/settings 1 (1).png">  Settings</p>
+							<p><img src="images/settings 1 (1).png">  Settings</p>
 							</li>
 							<li class="list-group-item border-0  ">
-								<img class="img-fluid" src="images/add-group (1) 1 (2).png"><br>
-								<span class="text-white">Add New</span>
+							<img class="img-fluid" src="images/add-group (1) 1 (2).png"><br>
+							<span class="text-white">Add New</span>
 							</li>*@
-						
+
 						</ul>
 
-						
+
 					</div>
 				</nav>
 			</div>
@@ -148,18 +151,18 @@
 						<!-- <span class="float-right pt-3 m-2"><strong>Olivia</strong></span> -->
 						<select class="form-select border-0 float-right  mt-4" aria-label="Default select example">
 							<option selected><strong>@ViewBag.Username</strong></option>
-							<option ><strong>Logout</strong></option>
+							<option><strong>Logout</strong></option>
 
 						</select>
 						<img class="img-fluid float-right pt-2 m-2 " src="~/jobseekerassets/images/gray-user.png" width="30px" height="30px">
 						<img class="img-fluid float-right pt-2 m-2 " src="~/jobseekerassets/images/notification-bing.png" width="30px" height="30px">
-                    </div>
+					</div>
 				</div>
-		<div class="">
-        @RenderBody()
-		</div>
-			
-    </div>
+				<div class="">
+					@RenderBody()
+				</div>
+
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12 footerfull footerContainerDiv">

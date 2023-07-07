@@ -46,10 +46,7 @@ namespace JobPortalApplication.Repositories
             //    throw new UserAlreadyExistException(user.Email);
             //}
         }
-        internal void logout()
-        {
-            loggedUser = new User();
-        }
+      
 
         public User Update(User updatedUser)
         {
@@ -118,15 +115,7 @@ namespace JobPortalApplication.Repositories
                 _context.Users.Remove(user);
             }
         }
-        public User getLoggedUser()
-        {
-            return loggedUser;
-        }
-        internal List<User> getCompanyMembers()
-        {
-        
-            return _context.Users.Where(e => e.Role == Enums.Roles.CompanyMember).ToList();
-        }
+    
     }
 
     

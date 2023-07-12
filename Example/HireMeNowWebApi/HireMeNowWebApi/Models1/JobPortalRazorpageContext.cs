@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace JobPortalApplication.Models;
+namespace HireMeNowWebApi.Models1;
 
-public partial class HireMeNowDbContext : DbContext
+public partial class JobPortalRazorpageContext : DbContext
 {
-    public HireMeNowDbContext()
+    public JobPortalRazorpageContext()
     {
     }
 
-    public HireMeNowDbContext(DbContextOptions<HireMeNowDbContext> options)
+    public JobPortalRazorpageContext(DbContextOptions<JobPortalRazorpageContext> options)
         : base(options)
     {
     }
@@ -39,7 +39,7 @@ public partial class HireMeNowDbContext : DbContext
     {
         modelBuilder.Entity<Application>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Applicat__3214EC07A0456D4C");
+            entity.HasKey(e => e.Id).HasName("PK__Applicat__3214EC072768F4BD");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.AppliedDate).HasColumnType("date");
@@ -58,9 +58,9 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<Company>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Companie__3214EC075C9ACB91");
+            entity.HasKey(e => e.Id).HasName("PK__Companie__3214EC0786F24486");
 
-            entity.HasIndex(e => e.Email, "UQ__Companie__A9D10534E9BC3D4E").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Companie__A9D105345402C181").IsUnique();
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.About)
@@ -101,7 +101,7 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<Experience>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Experien__3214EC077278D626");
+            entity.HasKey(e => e.Id).HasName("PK__Experien__3214EC0767FC34EC");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Company)
@@ -124,7 +124,7 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<Interview>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Intervie__3214EC070182B074");
+            entity.HasKey(e => e.Id).HasName("PK__Intervie__3214EC07F6BCCC61");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.CreatedDate).HasColumnType("date");
@@ -151,7 +151,7 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<Job>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Jobs__3214EC07024D6053");
+            entity.HasKey(e => e.Id).HasName("PK__Jobs__3214EC078AD73BAE");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.CreatedDate).HasColumnType("date");
@@ -194,7 +194,7 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<Qualification>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Qualific__3214EC07ABC132FC");
+            entity.HasKey(e => e.Id).HasName("PK__Qualific__3214EC07D509D71B");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Mark)
@@ -220,7 +220,7 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<Skill>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Skills__3214EC0722774215");
+            entity.HasKey(e => e.Id).HasName("PK__Skills__3214EC07CFCBECAF");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Status)
@@ -237,9 +237,9 @@ public partial class HireMeNowDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07DCEC237A");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07B33A5F28");
 
-            entity.HasIndex(e => e.Email, "UQ__Users__A9D105340BB73107").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534C6E54DFE").IsUnique();
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
             entity.Property(e => e.About)

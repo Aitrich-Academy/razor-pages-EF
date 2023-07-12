@@ -9,6 +9,16 @@
         display: flex;
         justify-content: center;
     }
+
+    .cde {
+       display:flex;
+     
+     
+    }
+    .abc
+    {
+        margin-right: 25px;
+    }
 </style>
 
 <div class="row mainDiv">
@@ -56,9 +66,9 @@
                     <span asp-validation-for="Input.Designation"></span>
                 </div>
                 <div class="col-md-6">
-                    <b>UserId</b>
+                  @*  <b>UserId</b>
                     <br>
-                @*    <input asp-for="Input.Id" type="text" class="form-control"  placeholder="Enter UserId"  size="30" required="">
+                    <input asp-for="Input.Id" type="text" class="form-control"  placeholder="Enter UserId"  size="30" required="">
                     <span asp-validation-for="Input.Id"></span>*@
                 </div>
             </div>
@@ -73,8 +83,8 @@
                 <div class="col-md-6">
                     <b>Confirm Password</b>
                     <br>
-                 @*   <input type="password" asp-for="Input.ConfirmPassword" class="form-control" placeholder=" Confirm Password" id="lname" size="30" required="">
-                    <span asp-validation-for="Input.ConfirmPassword"></span>*@
+                    <input type="password" asp-for="Input.ConfirmPassword" class="form-control" placeholder=" Confirm Password" id="lname" size="30" required="">
+                    <span asp-validation-for="Input.ConfirmPassword"></span>
                 </div>
             </div>
 
@@ -84,12 +94,20 @@
                     <b>Gender</b> <br>
                     <br>
                     <b>
-                        <input class="form-check-input" type="radio" asp-for="Input.Gender" value="male" id="male-radio" required>
-                        <label class="form-check-label" for="male-radio">Male</label>
+                        <div class="cde">
+                        <div class="abc">
+                            <input class="form-check-input" type="radio" asp-for="Input.Gender" value="male" id="male-radio" required>
+                            <label class="form-check-label" for="male-radio">Male</label>
+                        </div>  
+                        <div class="abc">
                         <input class="form-check-input" type="radio" asp-for="Input.Gender" value="female" id="female-radio" required>
                         <label class="form-check-label" for="female-radio">Female</label>
+                        </div>  
+                        <div class="abc">
                         <input class="form-check-input" type="radio" asp-for="Input.Gender" value="other" id="other-radio" required>
-                        <label class="form-check-label" for="other-radio">Other</label>
+                <label class="form-check-label" for="other-radio">Other</label>
+            </div>
+                        </div>
                     </b>
                 </div>
             </div>

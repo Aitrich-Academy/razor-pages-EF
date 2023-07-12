@@ -1,0 +1,31 @@
+﻿@page
+@model JobPortalApplication.Pages.JobProvider.ConfirmDeleteModel
+@{
+    Layout = "_JobProviderLayout";
+}
+<h2>CONFIRM DELETE</h2>
+
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+
+    @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+*@
+
+
+
+        <b> @Model.member.Email </b><br>
+        <form method="post">
+         <input type="button" value="Confirm Delete" class="btn btn-danger" >
+
+        <input type="hidden" name="memberId" value="@Model.member.Id">
+            <input asp-for="userId" type="hidden" class="form-control" placeholder="Enter FirstName" id="fname" size="30" required="">
+
+        <input type="submit" value="delete" class="btn btn-danger" asp-page-handler="ButtonClick">
+
+        </form>
+
+  </div>
+</div>
+

@@ -11,6 +11,10 @@ namespace JobPortalApplication.Services
             userRepository = _userRepository;
         }
 
+        public UserService()
+        {
+        }
+
         public User getById(Guid userId)
         {
             return userRepository.getById(userId);

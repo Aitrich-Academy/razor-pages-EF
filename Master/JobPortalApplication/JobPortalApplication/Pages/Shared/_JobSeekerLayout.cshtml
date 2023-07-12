@@ -25,7 +25,7 @@
 
 		.sidebarDiv {
 			background: #20a6fc;
-			;
+			
 		}
 
 		#menu li {
@@ -88,8 +88,8 @@
 <body>
 	<div class="container-fluid fullscreen-div ">
 		<div class="row">
-			<div class="col-md-2 text-nowrap sidebarDiv">
-				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+			<div class="col-md-2 text-nowrap sidebarDiv" style="background: #20a6fc;">
+				<nav class="navbar-expand-md sidebar navbar-dark">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 						<span class="navbar-toggler-icon bg-dark"></span>
 					</button>
@@ -150,7 +150,7 @@
 						<!-- <img class="img-fluid float-right m-2 pt-4" src="images/arrow-down.png"> -->
 						<!-- <span class="float-right pt-3 m-2"><strong>Olivia</strong></span> -->
 						<select class="form-select border-0 float-right  mt-4" aria-label="Default select example">
-							<option selected><strong>@ViewBag.Username</strong></option>
+							<option selected><strong>@ViewData["Username"]</strong></option>
 							<option><strong>Logout</strong></option>
 
 						</select>

@@ -15,6 +15,7 @@ namespace JobPortalApplication.Interfaces
         List<User> getAllUsers();
 
         void memberDeleteById(Guid id);
-
+        User login(string email, string password);
+        User updateUserProfile(User loggedUser);
     }
 }

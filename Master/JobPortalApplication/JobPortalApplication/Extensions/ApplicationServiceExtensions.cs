@@ -4,6 +4,7 @@ using JobPortalApplication.Interfaces;
 using JobPortalApplication.Repositories;
 using JobPortalApplication.Services;
 using Microsoft.EntityFrameworkCore;
+using JobPortalApplication.Managers;
 
 namespace JobPortalApplication.Extensions
 {
@@ -12,6 +13,7 @@ namespace JobPortalApplication.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IUserService, UserService>();
+        
             services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IInterviewServices, InterviewServices>();
 			services.AddScoped<IInterviewRepository, InterviewRepository>();
@@ -21,7 +23,8 @@ namespace JobPortalApplication.Extensions
             services.AddScoped<ICompanyService, CompanyService>();
 			services.AddScoped<IApplicationService, ApplicationService>();
 			    services.AddScoped<IApplicationRepository, ApplicationRepository>();
-		
+           
+
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<HireMeNowDbContext>(options =>
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection"))

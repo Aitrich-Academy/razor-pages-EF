@@ -2,7 +2,7 @@
 using JobPortalApplication.Enums;
 using JobPortalApplication.Exceptions;
 using JobPortalApplication.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace JobPortalApplication.Repositories
 {
@@ -14,9 +14,13 @@ namespace JobPortalApplication.Repositories
             _context = context;
         }
 
+        public UserRepository()
+        {
+        }
+
         public User getById(Guid userId)
         {
-           User user= _context.Users.Where(e=>e.Id==userId).FirstOrDefault();
+           User user= _context.Users.Where(e=>e.Id==userId).Include(x=>x.Qualifications).Include(x=>x.Skills).Include(x=>x.Experiences).FirstOrDefault();
             return user;
         }
 
@@ -72,7 +76,7 @@ namespace JobPortalApplication.Repositories
 
             return userToUpdate;
         }
-
+       
         public User memberRegister(User user)
         {
             user.Id = Guid.NewGuid();
@@ -115,7 +119,29 @@ namespace JobPortalApplication.Repositories
                 _context.Users.Remove(user);
             }
         }
-    
+
+        public User updateUserProfile(User loggedUser)
+        {
+            User user = _context.Users.Find(loggedUser.Id);
+            if(user!=null)
+            {
+                user.About = loggedUser.About;
+                _context.SaveChanges();
+                return user;
+            }
+            else
+            {
+                _context.Users.Add(loggedUser);
+                _context.SaveChanges();
+                return user;
+            }
+            
+        }
+
+        public User login(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     

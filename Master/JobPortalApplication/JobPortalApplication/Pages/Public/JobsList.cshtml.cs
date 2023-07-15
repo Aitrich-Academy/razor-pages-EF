@@ -44,14 +44,14 @@ namespace HireMeNow_JobSeekerApp.Pages.Public
         [ValidateAntiForgeryToken]
         public IActionResult OnPostButtonClick()
         {
-            var Application = _mapper.Map<Application>(input);
+            //var Application = _mapper.Map<Application>(input);
 
 			//////Guid userid =new Guid("18467cd4-2b85-4b2e-ab33-c78353d8b36d");
 			//string userid = (string)TempData["UserId"];
 
 			////User user = userService.getById(new Guid(userid));
 			//TempData.Keep("UserId");
-			userId = HttpContext.Session.GetString("UserId");
+			userId = HttpContext.Session.GetString("UserId");                                                               
 			if (Guid.TryParse(Request.Form["parameter"], out Guid jobid))
             {
 

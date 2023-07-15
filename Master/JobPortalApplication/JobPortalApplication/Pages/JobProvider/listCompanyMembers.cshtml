@@ -35,20 +35,21 @@
               
         <div class="col-md-6 detailsDiv ">
             <form method="post">
-                    <img src="" /><br>
+                    <img src="~/images/profile.png" /><br>
                     <b> @job.FirstName </b><br>
                     <b> @job.Designation </b><br>
                     <b> @job.Phone </b><br>
                     <b> @job.Email </b><br><br>
 
-                    <input type="button" value="View" class="btn btn-primary">
+                    <input type="button" value="View" class="btn btn-primary"><br>
 
 
                     @*<input type="button" value="Delete" class="btn btn-danger" onclick="window.location.href = '/JobProvider/ConfirmDelete'">*@
 
 
 
-                    <input type="button" value="Confirm Delete" class="btn btn-danger" onclick="window.location.href = '/JobProvider/ConfirmDelete?userId=@job.Id'">
+                    <input type="button" value="Confirm Delete" class="btn btn-danger" onclick="window.location.href = '/JobProvider/ConfirmDelete'">
+                    <a asp-page="./ConfirmDelete" asp-route-id="@job.Id">Edit</a>
 
                     
             </form>

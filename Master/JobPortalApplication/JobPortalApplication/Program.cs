@@ -1,4 +1,7 @@
 using JobPortalApplication.Extensions;
+using JobPortalApplication.Interfaces;
+using JobPortalApplication.Repositories;
+using JobPortalApplication.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +13,11 @@ builder.Services.AddRazorPages(options =>
 	options.Conventions.AddPageRoute("/", "/public/Login");
 });
 builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<ICompanyRepository, CompanyRepository>();
+
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IUserService, UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

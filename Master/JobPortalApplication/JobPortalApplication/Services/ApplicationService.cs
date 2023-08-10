@@ -1,6 +1,7 @@
 ﻿using JobPortalApplication.Interfaces;
 using JobPortalApplication.Models;
 using JobPortalApplication.Repositories;
+using System.ComponentModel.Design;
 
 namespace JobPortalApplication.Services
 {
@@ -23,9 +24,19 @@ namespace JobPortalApplication.Services
 			
 			_applicationRepository.AddApplication(user,job);
 		}
-        public List<Application> GetAll(Guid userId)
+        public List<Application> GetAll(Guid userId)	
 		{
 			return _applicationRepository.GetAll(userId);
 		}
-    }
+
+		public List<Application> GetAllApplication(Guid companyid)
+		{
+			return _applicationRepository.GetAllApplication(companyid);
+		}
+
+		public Application GetApplicationById(Guid id)
+		{
+			return _applicationRepository.GetAllApplicationById(id);
+		}
+	}
 }

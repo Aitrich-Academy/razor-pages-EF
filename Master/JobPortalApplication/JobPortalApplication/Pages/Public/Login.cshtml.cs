@@ -72,9 +72,11 @@ namespace HireMeNow_JobSeekerApp.Pages.Public
                 if (result!=null)
                 {
                     HttpContext.Session.SetString("UserId", result.Id.ToString());
-                    ViewData["UserId"]=result.Id;
+					HttpContext.Session.SetString("CompanyId", result.CompanyId.ToString());
+					ViewData["UserId"]=result.Id;
                     TempData["UserId"] =  result.Id;
 					TempData["CompanyId"] = result.CompanyId;
+                   
 					return LocalRedirect(returnUrl);
                 }
                 else

@@ -33,7 +33,7 @@ public partial class HireMeNowDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-8OVL573R;Initial Catalog=JobPortal_Razorpage;Integrated Security=True;Persist Security Info=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-ECUKC3V;Initial Catalog=JobPortal_DB;Integrated Security=True;Trusted_Connection=True;TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,7 +54,11 @@ public partial class HireMeNowDbContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Applications)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__Applicati__UserI__32E0915F");
-        });
+
+			entity.HasOne(d => d.Company).WithMany(p => p.Applications)
+				.HasForeignKey(d => d.CompanyId)
+				.HasConstraintName("FK__Applicati__CompanyId__32E0915F");
+		});
 
         modelBuilder.Entity<Company>(entity =>
         {
@@ -144,7 +148,12 @@ public partial class HireMeNowDbContext : DbContext
                 .HasForeignKey(d => d.JobId)
                 .HasConstraintName("FK__Interview__JobId__3B75D760");
 
-            entity.HasOne(d => d.Jobseeker).WithMany(p => p.InterviewJobseekers)
+			//entity.HasOne(d => d.Company).WithMany(p => p.Interviews)
+			//   .HasForeignKey(d => d.CompanyId)
+			//   .HasConstraintName("FK__Interview__CompanyId__3B75D760");
+
+
+			entity.HasOne(d => d.Jobseeker).WithMany(p => p.InterviewJobseekers)
                 .HasForeignKey(d => d.JobseekerId)
                 .HasConstraintName("FK__Interview__Jobse__3C69FB99");
         });
@@ -154,6 +163,7 @@ public partial class HireMeNowDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Jobs__3214EC07024D6053");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.CreatedDate).HasColumnType("date");
             entity.Property(e => e.Description)
                 .HasMaxLength(50)

@@ -1,4 +1,112 @@
 ﻿@page
 @model JobPortalApplication.Pages.JobProvider.SheduledInterviewModel
 @{
+	Layout = "_SheduledInterview";
 }
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2 bg-primary">
+			<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  					<span class="navbar-toggler-icon bg-dark"></span>
+  				</button>
+ 				<div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
+ 					<ul class="list-group text-white list-unstyled">
+ 						<li class="list-group-item border-0 bg-primary">
+ 							<div class="w-75 mt-5 pb-2 pt-2 bg-secondary rounded-circle">
+ 								<img class="img-fluid mx-auto d-block" src="~/interview/images/cheerful-curly-business-girl-wearing-glasses 1.png" width="75" height="75">
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<h4 class="h4-fluid text-center">Olivia<br>olivia@gmail.com</h4>
+ 						</li>
+ 						<li class="list-group-item border-0 bg-primary">
+ 							<p><img src="~/interview/images/dashboard 1.png" >  Dash Board</p>
+ 						</li>
+ 						<li class="list-group-item border-0 bg-primary">
+ 							<p><img src="~/interview/images/suitcase 2.png" >  Jobs</p>
+ 						</li>
+		    			<li class="list-group-item border-0 bg-primary">
+ 							<p><img src="~/interview/images/application (1) 1.png">  Applications</p>
+ 						</li>
+		   				<li class="list-group-item border-0 bg-primary">
+ 						<p>	<a asp-page="/InterviewShedule_page"  class="nav-link text-white"><img src="~/interview/images/question (1) 1.png"> shedule Interviews</a></p>
+ 						</li>
+ 						<li class="list-group-item border-0 bg-primary">
+ 							<p><img src="~/interview/images/message 1.png" > Messages</p>
+ 						</li>
+		    
+		    			<li class="list-group-item border-0 bg-primary">
+ 							<p><img src="~/interview/images/settings 1.png">  Settings</p>
+ 						</li>
+		    			<li class="list-group-item border-0 bg-primary">
+		    				<img class="img-fluid" src="~/interview/images/add-group (1) 1 (1).png"><br>
+			        		<span class="text-white">Add New</span>
+		    			</li>
+ 					</ul>
+ 				</div>
+ 			</nav>
+		</div>
+		<div class="col-md-10 bg-light">
+			<div class="row bg-white">
+				<div class="col-md-10 ">
+					<h4 class="h4-fluid mt-3 ">SHORT LIST</h4>
+					
+				</div>
+				<div class="col-md-2 content-justify-right">
+					<img class="img-fluid " src="~/interview/images/Group 5689.png">
+                    <a asp-page="/Index"><img class="img-fluid" src="~/interview/images/Group 33999.png"></a>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-md-8 bg-white border rounded-pill  ml-2">
+					<div class="input-group ">
+						<img class="img-fluid" src="~/interview/images/search copy 2.png" width="10" height="5">
+						<input  type="search" class="form-control border-0 " placeholder="Search by Job Title, Interview Date" aria-label="Search" aria-describedby="search-addon">
+	        		    <img class="img-fluid" src="~/interview/images/icon filter.png" width="15" height="10">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-11 bg-white border rounded mx-auto mt-5 mb-5">
+					<div class="row">
+						<div class="col-md-6 p-5 scroll">
+							
+
+							@foreach(var interview in  Model.Interviews)
+            {
+							<div class="row">
+								<div class="col-md-12 pb-3 pt-3 ">
+									<img class="img-fluid float-left pb-5" src="~/interview/images/Company Logo (2).png">
+									<h4 class="h4-fluid">@interview.Job</h4>
+									<p>Date Of Interview : @interview.Date<br>
+										Location/Online:@interview.Location ,offline<br>
+										Time:@interview.Time
+									</p>
+									     <input type="hidden" name="parameter" value="@interview.Id" />
+									<a asp-page="Interview" class="btn bg-primary text-white mx-auto d-block" asp-route-id="@interview.Id,@interview.JobId" >View</a>
+								</div>
+							</div>}
+							@*<div class="row">
+								<div class="col-md-12  pb-3 pt-3">
+									<img class="img-fluid float-left pb-5" src="~/interview/images/Company Logo (2).png">
+									<h4 class="h4-fluid">Customer Manager</h4>
+									<p>Date Of Interview : 20/02/23<br>
+										Location/Online:Online<br>
+										Time:10.30AM
+									</p>
+									<button class="btn bg-primary text-white mx-auto d-block" >View</button>
+								</div>
+							</div>*@
+						</div>
+					<div class="col-md-6 pb-5 mt=5">
+							<img class="img-fluid" src="~/interview/images/nice-meeting-businessmen 1.png" height="100%">
+						</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	
+</body>

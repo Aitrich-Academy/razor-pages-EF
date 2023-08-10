@@ -1,7 +1,7 @@
 ﻿@page
-@model JobPortalApplication.Pages.JobProvider.InterviewSheduleModel
+@model JobPortalApplication.Pages.JobProvider.InterviewModel
 @{
-	Layout = "_InterviewLayout" ;
+    Layout = "_InterviewLayout" ;
 }
 @Html.AntiForgeryToken()
 <body>
@@ -67,32 +67,32 @@
  						</div>
                         <div class="row">
  							<div class="col-md-10 mx-auto d-block border-top ">
- 								<form method="post" >
+ 								<form method="post"  asp-page-handler="RemoveJob" asp-route-id="@Model.interview.Id" >
 									<div class="form-group text-dark">
 										<label for="Job Title" ><h4>Job Title</h4></label>
 										@*<input asp-for="Input.JobId" type="hidden" value="@Model.Application.JobId">
 										<input asp-for="Input.JobseekerId" type="hidden" value="@Model.Application.UserId">*@
-										<input asp-for="Input.Post" type="text" name="Post" placeholder="Select Jobtitle" class="form-control bg-light p-4 border-0 rounded " required="" value ="@Model.Application.Job.Title">
+										<input asp-for="Input.Post" type="text" name="Post" placeholder="Select Jobtitle" class="form-control bg-light p-4 border-0 rounded " required="" value ="@Model.interview.Job.Title">
                                     </div>
 									<div class="form-group text-dark p-1">
 										<label for="Date"><h4>Date</h4></label>
 										<img class="img-fluid float-right" src="~/asset/images/calendar (4) 1.png">
-										<input asp-for="Input.Date" value="Input.Date" type="Date" name="date" placeholder="Select Date" class="form-control bg-light p-4 border-0 rounded w-75 "required="" >
+										<input asp-for="Input.Date" value ="@Model.interview.Date" type="Date" name="date" placeholder="@Model" class="form-control bg-light p-4 border-0 rounded w-75 "required=""  >
 									</div>
 									<div class="form-group text-dark p-1">
 										<label for="Time"><h4>Time</h4></label>
 										<img class="img-fluid float-right" src="~/asset/images/clock 1.png">
-										<input asp-for="Input.Time" type="Time" name="time" placeholder=" Enter time" class="form-control bg-light p-4 border-0 rounded w-75"required="">
+										<input asp-for="Input.Time" type="Time" name="time" placeholder=" Enter time" class="form-control bg-light p-4 border-0 rounded w-75"required="" value="@Model.interview.Time">
 									</div>
 									<div class="form-group text-dark p-2">
 										<label for="Location"><h4>Location</h4></label>
 										<img class="img-fluid float-right" src="~/asset/images/location 1.png">
-										<input asp-for="Input.Location" type="text" name="location" value="@Model.Application.Job.Location" placeholder="Enter location" class="form-control bg-light p-4 border-0 rounded mb-5 w-75"required="">
+										<input asp-for="Input.Location" type="text" name="location" value="" placeholder="Enter location" class="form-control bg-light p-4 border-0 rounded mb-5 w-75"required="" value="@Model.interview.Location">
 									</div>
 									<div class="form-group d-inline ">
 									@*	<input type="submit" value="send"/>*@
 
-									 <input class="btn  text-white mr-5 bg-primary text-white" type="submit" value="Send"></input>
+									 <input class="btn text-white mr-5 bg-primary text-white" type="submit" value="Remove"></input>
 									<label ><h5>Push Notification</h5></label>
 		 								<img class="img-fluid mr-5" src="~/asset/images/Group 14.png">
 		 								<label><h5>Email Notifications</h5></label>

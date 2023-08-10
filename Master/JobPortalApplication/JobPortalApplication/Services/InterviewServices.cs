@@ -13,6 +13,21 @@ namespace JobPortalApplication.Services
 			this.interviewRepository = interviewRepository;
 		}
 
+		public void DeleteItemById(Guid id)
+		{
+			interviewRepository.removeInterview(id);
+		}
+
+		public List<Interview> GetAll(Guid companid)
+		{
+			return interviewRepository.sheduledInterviewList(companid);
+		}
+
+		public Interview GetInterviewById(Guid id)
+		{
+			return interviewRepository.GetInterviewById(id);
+		}
+
 		public void removeInterview(Guid id)
 		{
 			interviewRepository.removeInterview(id);

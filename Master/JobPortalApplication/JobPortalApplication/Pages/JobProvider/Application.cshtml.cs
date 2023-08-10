@@ -33,7 +33,7 @@ namespace JobPortalApplication.Pages.JobProvider
 
 			Applications = applicationService.GetAllApplication(Companyid);
             Applications.ForEach((e) =>
-            {
+            {   
                 e.Job = jobService.getJobById(e.JobId.Value);
                
             });
